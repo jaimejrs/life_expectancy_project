@@ -31,6 +31,7 @@ Arquivos principais:
 data/expectativa_vida_2016_2025.csv
 data/df_clean.csv
 life_expectancy_project.ipynb
+app.py
 requirements.txt
 ```
 
@@ -43,10 +44,13 @@ O notebook segue as etapas abaixo:
 3. Limpeza dos dados e padronizacao das colunas.
 4. Engenharia de atributos, incluindo transformacoes logaritmicas e consolidacao de variaveis correlacionadas.
 5. Analise exploratoria da variavel-alvo e comparacao entre paises desenvolvidos e em desenvolvimento.
-6. Regressao OLS para interpretacao dos coeficientes.
-7. Comparacao de modelos preditivos.
-8. Avaliacao do modelo escolhido.
-9. Simulacao de cenarios de politica publica.
+6. Analise temporal por pais, incluindo maiores altas, maiores quedas e volatilidade.
+7. Regressao OLS para interpretacao dos coeficientes.
+8. Comparacao de modelos preditivos.
+9. Validacao temporal, treinando em anos anteriores e testando em anos futuros.
+10. Explicabilidade adicional por importancia de permutacao.
+11. Avaliacao detalhada de erros por ano, faixa de expectativa de vida e pais.
+12. Simulacao de cenarios de politica publica.
 
 ## Modelos testados
 
@@ -68,6 +72,8 @@ Resultado da comparacao:
 
 O Random Forest apresentou o melhor desempenho geral, com menor erro medio e maior capacidade de explicacao no conjunto de teste.
 
+Na validacao temporal, treinando com dados de 2016 a 2023 e testando em 2024-2025, o Random Forest manteve bom desempenho, com R2 de 0.921. Esse teste e mais proximo de um uso real, pois avalia previsao em anos posteriores aos usados no treino.
+
 ![Comparacao de modelos](portfolio_images/02_model_comparison.png)
 
 ## Principais fatores
@@ -84,7 +90,17 @@ O projeto tambem compara cenarios hipoteticos para um pais em desenvolvimento em
 
 ![Simulacao de cenarios](portfolio_images/04_policy_scenarios.png)
 
-Na simulacao, a reducao de HIV/AIDS para 0.1 apresentou o maior ganho previsto em relacao ao cenario base. Essa recomendacao deve ser vista como apoio a decisao, pois a aplicacao real depende de viabilidade operacional, custo e contexto sanitario.
+Na simulacao, o pacote integrado apresentou o maior ganho previsto em relacao ao cenario base. Esse pacote combina reducao de mortalidade adulta, aumento de cobertura vacinal, ganho de escolaridade e reducao de HIV/AIDS. A recomendacao deve ser vista como apoio a decisao, pois a aplicacao real depende de viabilidade operacional, custo e contexto sanitario.
+
+## Dashboard Streamlit
+
+O repositorio inclui um app simples em Streamlit para explorar o modelo final. O dashboard permite alterar indicadores do cenario, ver a previsao da expectativa de vida e acompanhar metricas do modelo.
+
+Para executar:
+
+```bash
+streamlit run app.py
+```
 
 ## Resumo visual
 
@@ -118,6 +134,7 @@ Abra o arquivo `life_expectancy_project.ipynb` no VS Code, JupyterLab ou outro a
 
 ```text
 .
+├── app.py
 ├── data/
 │   ├── df_clean.csv
 │   └── expectativa_vida_2016_2025.csv
