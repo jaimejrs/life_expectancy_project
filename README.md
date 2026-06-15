@@ -31,7 +31,6 @@ Arquivos principais:
 data/expectativa_vida_2016_2025.csv
 data/df_clean.csv
 life_expectancy_project.ipynb
-app.py
 requirements.txt
 ```
 
@@ -92,16 +91,6 @@ O projeto tambem compara cenarios hipoteticos para um pais em desenvolvimento em
 
 Na simulacao, o pacote integrado apresentou o maior ganho previsto em relacao ao cenario base. Esse pacote combina reducao de mortalidade adulta, aumento de cobertura vacinal, ganho de escolaridade e reducao de HIV/AIDS. A recomendacao deve ser vista como apoio a decisao, pois a aplicacao real depende de viabilidade operacional, custo e contexto sanitario.
 
-## Dashboard Streamlit
-
-O repositorio inclui um app simples em Streamlit para explorar o modelo final. O dashboard permite alterar indicadores do cenario, ver a previsao da expectativa de vida e acompanhar metricas do modelo.
-
-Para executar:
-
-```bash
-streamlit run app.py
-```
-
 ## Resumo visual
 
 ![Resumo do modelo](images/05_model_summary.png)
@@ -134,7 +123,6 @@ Abra o arquivo `life_expectancy_project.ipynb` no VS Code, JupyterLab ou outro a
 
 ```text
 .
-├── app.py
 ├── data/
 │   ├── df_clean.csv
 │   └── expectativa_vida_2016_2025.csv
