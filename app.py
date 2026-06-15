@@ -117,14 +117,50 @@ st.write(
     "Dashboard simples para explorar o modelo Random Forest treinado no projeto."
 )
 
-col1, col2, col3, col4 = st.columns(4)
-col1.metric("Paises", f"{df['country'].nunique():,}")
-col2.metric("Registros", f"{len(df):,}")
-col3.metric("R2 teste", f"{metrics['R2']:.3f}")
-col4.metric("RMSE", f"{metrics['RMSE']:.2f} anos")
+prediction_col, country_col, records_col, r2_col, rmse_col = st.columns(
+    [1.7, 1, 1, 1, 1]
+)
 
-st.subheader("Previsao do cenario")
-st.metric("Expectativa de vida prevista", f"{prediction:.2f} anos")
+with prediction_col:
+    st.markdown(
+        f"""
+        <div style="
+            border: 1px solid #d9dee7;
+            border-radius: 8px;
+            padding: 18px 20px;
+            background: #f7f8fa;
+        ">
+            <div style="
+                color: #687487;
+                font-size: 0.92rem;
+                margin-bottom: 6px;
+            ">
+                Previsao do cenario
+            </div>
+            <div style="
+                color: #18212f;
+                font-size: 2.15rem;
+                font-weight: 700;
+                line-height: 1.1;
+            ">
+                {prediction:.2f} anos
+            </div>
+            <div style="
+                color: #687487;
+                font-size: 0.82rem;
+                margin-top: 6px;
+            ">
+                Expectativa de vida prevista
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+country_col.metric("Paises", f"{df['country'].nunique():,}")
+records_col.metric("Registros", f"{len(df):,}")
+r2_col.metric("R2 teste", f"{metrics['R2']:.3f}")
+rmse_col.metric("RMSE", f"{metrics['RMSE']:.2f} anos")
 
 st.subheader("Importancia das variaveis")
 importance = (
