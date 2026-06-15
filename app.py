@@ -126,10 +126,6 @@ col4.metric("RMSE", f"{metrics['RMSE']:.2f} anos")
 st.subheader("Previsao do cenario")
 st.metric("Expectativa de vida prevista", f"{prediction:.2f} anos")
 
-st.subheader("Tendencia media global")
-trend = df.groupby("year", as_index=False)["life_expectancy"].mean()
-st.line_chart(trend, x="year", y="life_expectancy")
-
 st.subheader("Importancia das variaveis")
 importance = (
     pd.Series(model.feature_importances_, index=features)
