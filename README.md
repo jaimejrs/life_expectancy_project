@@ -4,7 +4,7 @@ Projeto de ciencia de dados aplicado a saude publica, com foco em prever a expec
 
 O trabalho foi desenvolvido como um pipeline completo: analise exploratoria, limpeza dos dados, engenharia de atributos, modelagem estatistica, comparacao de modelos preditivos e simulacao de cenarios.
 
-![Capa do projeto](portfolio_images/01_case_cover.png)
+![Capa do projeto](images/01_case_cover.png)
 
 ## Problema de negocio
 
@@ -74,13 +74,13 @@ O Random Forest apresentou o melhor desempenho geral, com menor erro medio e mai
 
 Na validacao temporal, treinando com dados de 2016 a 2023 e testando em 2024-2025, o Random Forest manteve bom desempenho, com R2 de 0.921. Esse teste e mais proximo de um uso real, pois avalia previsao em anos posteriores aos usados no treino.
 
-![Comparacao de modelos](portfolio_images/02_model_comparison.png)
+![Comparacao de modelos](images/02_model_comparison.png)
 
 ## Principais fatores
 
 As variaveis mais relevantes para o modelo final foram associadas a carga de doencas, mortalidade, escolaridade, magreza media e renda.
 
-![Importancia das variaveis](portfolio_images/03_feature_importance.png)
+![Importancia das variaveis](images/03_feature_importance.png)
 
 Essas variaveis devem ser interpretadas como fatores preditivos relevantes, nao como prova causal. Para decisoes de politica publica, o resultado do modelo deve ser combinado com conhecimento tecnico, custo de implementacao e avaliacao de impacto.
 
@@ -88,7 +88,7 @@ Essas variaveis devem ser interpretadas como fatores preditivos relevantes, nao 
 
 O projeto tambem compara cenarios hipoteticos para um pais em desenvolvimento em 2027.
 
-![Simulacao de cenarios](portfolio_images/04_policy_scenarios.png)
+![Simulacao de cenarios](images/04_policy_scenarios.png)
 
 Na simulacao, o pacote integrado apresentou o maior ganho previsto em relacao ao cenario base. Esse pacote combina reducao de mortalidade adulta, aumento de cobertura vacinal, ganho de escolaridade e reducao de HIV/AIDS. A recomendacao deve ser vista como apoio a decisao, pois a aplicacao real depende de viabilidade operacional, custo e contexto sanitario.
 
@@ -104,7 +104,7 @@ streamlit run app.py
 
 ## Resumo visual
 
-![Resumo do modelo](portfolio_images/05_model_summary.png)
+![Resumo do modelo](images/05_model_summary.png)
 
 ## Como executar
 
@@ -138,7 +138,7 @@ Abra o arquivo `life_expectancy_project.ipynb` no VS Code, JupyterLab ou outro a
 ├── data/
 │   ├── df_clean.csv
 │   └── expectativa_vida_2016_2025.csv
-├── portfolio_images/
+├── images/
 │   ├── 01_case_cover.png
 │   ├── 02_model_comparison.png
 │   ├── 03_feature_importance.png
